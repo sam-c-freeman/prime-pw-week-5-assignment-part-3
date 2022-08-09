@@ -89,6 +89,22 @@ console.log(findByArtist('Skyler Day'));
 //     - If no results are found, return an empty array.
 //     - If there is no search object or an empty search object provided as input, then return all albums in the `collection`.
 
+function search (artist, year){
+    let searchMatches = [];
+    for (oneAlbum of collection){
+        if(oneAlbum.artist === artist && oneAlbum.yearPublished === year){
+            searchMatches.push(oneAlbum);
+        }
+    }
+    return searchMatches;
+} 
+
+console.log(search('Rascal Miles', 2021));
+console.log(search('Skyler Day', 2021));
+console.log(search());
+
+
+
 // - Add an array of `tracks` to your album objects. Each track should have a `name` and `duration`. You will need to update the functions to support this new property:
 //   - Update the `addToCollection` function to also take an input parameter for the array of tracks.
 //   - Update `search` to allow a `trackName` search criteria.
