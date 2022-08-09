@@ -59,9 +59,9 @@ showCollection(collection);
 
 function findByArtist (artist){
     let artistResults = [];
-    for (let oneArtist of collection){
-        if(oneArtist.artist === artist ){
-            artistResults.push(oneArtist)
+    for (let oneAlbum of collection){
+        if(oneAlbum.artist === artist ){
+            artistResults.push(oneAlbum)
         }
     }
         return artistResults;
