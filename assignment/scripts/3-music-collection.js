@@ -43,7 +43,7 @@ console.log(collection);
 function showCollection (array){
     console.log(array.length);
     for (album of array){
-        console.log(`${title} by ${artist}, published in ${yearPublished}`);
+        console.log(album);
     }
 }
 
@@ -57,12 +57,19 @@ showCollection(collection);
 //   - Loop through the `collection` and add any objects with a matching artist to the array.
 //   - Return the array with the matching results. If no results are found, return an empty array.
 
-function findByArtist (artist){
+function findByArtist (artist, array){
     let artistResults = [];
-    for (artist of collection){
-        
+    for (album of array){
+        if(album.artist === 'artist' ){
+            artistResults.push(album)
+        }
+        return artistResults;  
     }
-}
+        return artistResults;
+ }
+
+
+console.log(findByArtist('Rascal Miles', collection));
 
 // - Test the `findByArtist` function. Make sure to test with an artist you know is in the collection, as well as an artist you know is not in your collection. Check that for artists with multiple matches, all are found.
 
