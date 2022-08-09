@@ -43,7 +43,7 @@ console.log(collection);
 function showCollection (array){
     console.log(array.length);
     for (album of array){
-        console.log(album);
+        console.log(`${album.title} by ${album.artist}, published in ${album.yearPublished}`);
     }
 }
 
