@@ -89,24 +89,24 @@ console.log(findByArtist('Skyler Day'));
 //     - If no results are found, return an empty array.
 //     - If there is no search object or an empty search object provided as input, then return all albums in the `collection`.
 
-function search (album){
-    let searchMatches = [];
-    if (album === undefined || album.artist === undefined){
-        return collection;
-    }
-    for (oneAlbum of collection){
-        if(oneAlbum.artist === album.artist && oneAlbum.yearPublished === album.yearPublished){
-            searchMatches.push(oneAlbum);
-        }
-    }
-    return searchMatches;
-} 
+// function search (album){
+//     let searchMatches = [];
+//     if (album === undefined || album.artist === undefined){
+//         return collection;
+//     }
+//     for (oneAlbum of collection){
+//         if(oneAlbum.artist === album.artist && oneAlbum.yearPublished === album.yearPublished){
+//             searchMatches.push(oneAlbum);
+//         }
+//     }
+//     return searchMatches;
+// } 
 
-console.log(search({artist: 'Rascal Miles', yearPublished: 2021}));
-console.log(search({artist: 'Skyler Day', yearPublished: 2021}));
-console.log(search({artist: 'Eminem', yearPublished: 2016}));
-console.log(search());
-console.log(search({}));
+// console.log(search({artist: 'Rascal Miles', yearPublished: 2021}));
+// console.log(search({artist: 'Skyler Day', yearPublished: 2021}));
+// console.log(search({artist: 'Eminem', yearPublished: 2016}));
+// console.log(search());
+// console.log(search({}));
 
 //Have not finished the above!!!
 
@@ -141,6 +141,32 @@ function addToCollection (title, artist, yearPublished, [trackName, duration]){
     }
 
 console.log(addToCollection('Tailor Made', 'Rascal Miles', 2021, [{trackName: 'Rotten Roots', duration: '3:11'}, {trackName: 'Water Balloons', duration: '3:09'}]));
+console.log(addToCollection('Space Cadet', 'Rascal Miles', 2020, [{trackName: 'Dead Legs', duration: '4:19'}, {trackName: 'Smokin on the Porch', duration: '3:54'}, {trackName: 'Summer Solstice', duration: '3:13'}]));
+
+//not adding third track?  Why?
+
+
+// function search (album){
+//         let searchMatches = [];
+//         if (album === undefined || album.artist === undefined){
+//             return collection;
+//         }
+//         for (oneAlbum of collection){
+//             if(oneAlbum.artist === album.artist && oneAlbum.yearPublished === album.yearPublished){
+//                 searchMatches.push(oneAlbum);
+//             }
+//         }
+//         return searchMatches;
+//     } 
+
+// function showCollection (array){
+//     console.log(array.length);
+//     for (album of array){
+//         console.log(`${album.title} by ${album.artist}, published in ${album.yearPublished}`);
+//     }
+// }
+
+// showCollection(collection);
 
 // ## Assignment Submission
 // Check in your repo, then turn in your work via the Prime Academy Assignment Application at http://primeacademy.io, as usual and don't hesitate to hit up the Slack channel as needed!
