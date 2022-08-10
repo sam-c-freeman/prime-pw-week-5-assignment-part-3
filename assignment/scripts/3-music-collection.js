@@ -129,16 +129,32 @@ console.log(findByArtist('Skyler Day'));
 // > Make sure to test all your code!
 
 
-function addToCollection (title, artist, yearPublished, [trackName, duration]){
-    let album = {
-        title ,
-        artist ,
-        yearPublished ,
-        tracks : [trackName, duration],
-        }
-        collection.push(album);
-        return album;
-    }
+// function addToCollection (title, artist, yearPublished, [trackName, duration]){
+//     let album = {
+//         title ,
+//         artist ,
+//         yearPublished ,
+//         tracks : [trackName, duration],
+//         }
+//         collection.push(album);
+//         return album;
+//     }
+
+// function addToCollection (title, artist, yearPublished, [tracks]){
+//     let album = {
+//         title ,
+//         artist ,
+//         yearPublished ,
+//         let tracks = [],
+//         for (let track of tracks){
+//             tracks.push(trackName, duration);
+//         },
+//         }
+//         collection.push(album);
+//         return album;
+//     }
+
+//immediately above is entirely broken
 
 console.log(addToCollection('Tailor Made', 'Rascal Miles', 2021, [{trackName: 'Rotten Roots', duration: '3:11'}, {trackName: 'Water Balloons', duration: '3:09'}]));
 console.log(addToCollection('Space Cadet', 'Rascal Miles', 2020, [{trackName: 'Dead Legs', duration: '4:19'}, {trackName: 'Smokin on the Porch', duration: '3:54'}, {trackName: 'Summer Solstice', duration: '3:13'}]));
