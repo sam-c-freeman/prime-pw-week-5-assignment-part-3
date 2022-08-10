@@ -10,15 +10,15 @@ let collection = [];
 //   - Add the new object to the end of the `collection` array
 //   - Return the newly created object
 
-function addToCollection (title, artist, yearPublished){
-    let album = {
-        title ,
-        artist ,
-        yearPublished ,
-    }
-    collection.push(album);
-    return album;
-}
+// function addToCollection (title, artist, yearPublished){
+//     let album = {
+//         title ,
+//         artist ,
+//         yearPublished ,
+//     }
+//     collection.push(album);
+//     return album;
+// }
 
 
 // - Test the `addToCollection` function:
@@ -26,13 +26,13 @@ function addToCollection (title, artist, yearPublished){
 //   - Console.log each album as added using the returned value.
 //   - After all are added, console.log the `collection` array.
 
-console.log(addToCollection('Tailor Made', 'Rascal Miles', 2021));
-console.log(addToCollection('Space Cadet', 'Rascal Miles', 2020));
-console.log(addToCollection('Songs from the Greenhouse', 'Skyler Day', 2021));
-console.log(addToCollection('Starting Over', 'Chris Stapleton', 2020));
-console.log(addToCollection('Almost Naked', 'Ruby Waters', 2019));
-console.log(addToCollection('My Woman', 'Angel Olsen', 2016));
-console.log(collection);
+// console.log(addToCollection('Tailor Made', 'Rascal Miles', 2021));
+// console.log(addToCollection('Space Cadet', 'Rascal Miles', 2020));
+// console.log(addToCollection('Songs from the Greenhouse', 'Skyler Day', 2021));
+// console.log(addToCollection('Starting Over', 'Chris Stapleton', 2020));
+// console.log(addToCollection('Almost Naked', 'Ruby Waters', 2019));
+// console.log(addToCollection('My Woman', 'Angel Olsen', 2016));
+// console.log(collection);
 
 
 // - Add a function named `showCollection`. This function should:
@@ -89,19 +89,26 @@ console.log(findByArtist('Skyler Day'));
 //     - If no results are found, return an empty array.
 //     - If there is no search object or an empty search object provided as input, then return all albums in the `collection`.
 
-function search (artist, year){
+function search (album){
     let searchMatches = [];
+    if (album === undefined || album.artist === undefined){
+        return collection;
+    }
     for (oneAlbum of collection){
-        if(oneAlbum.artist === artist && oneAlbum.yearPublished === year){
+        if(oneAlbum.artist === album.artist && oneAlbum.yearPublished === album.yearPublished){
             searchMatches.push(oneAlbum);
         }
     }
     return searchMatches;
 } 
 
-console.log(search('Rascal Miles', 2021));
-console.log(search('Skyler Day', 2021));
+console.log(search({artist: 'Rascal Miles', yearPublished: 2021}));
+console.log(search({artist: 'Skyler Day', yearPublished: 2021}));
+console.log(search({artist: 'Eminem', yearPublished: 2016}));
 console.log(search());
+console.log(search({}));
+
+//Have not finished the above!!!
 
 
 
@@ -122,6 +129,18 @@ console.log(search());
 // > Make sure to test all your code!
 
 
+function addToCollection (title, artist, yearPublished, [trackName, duration]){
+    let album = {
+        title ,
+        artist ,
+        yearPublished ,
+        tracks : [trackName, duration],
+        }
+        collection.push(album);
+        return album;
+    }
+
+console.log(addToCollection('Tailor Made', 'Rascal Miles', 2021, [{trackName: 'Rotten Roots', duration: '3:11'}, {trackName: 'Water Balloons', duration: '3:09'}]));
 
 // ## Assignment Submission
 // Check in your repo, then turn in your work via the Prime Academy Assignment Application at http://primeacademy.io, as usual and don't hesitate to hit up the Slack channel as needed!
