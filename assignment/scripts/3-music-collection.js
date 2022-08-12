@@ -180,9 +180,11 @@ console.log(addToCollection('Starting Over', 'Chris Stapleton', 2020, [{trackNam
 function showCollection (array){
     console.log(array.length);
     for (album of array){
-        console.log(`${album.title} by ${album.artist}, published in ${album.yearPublished}`);
+        console.log(`${album.title} by ${album.artist}, published in ${album.yearPublished}: ${album.tracks}`);
     }
 }
+
+//album.tracks shows the right number of objects but doesn't seem to carry forward the actual values
 
 showCollection(collection);
 
