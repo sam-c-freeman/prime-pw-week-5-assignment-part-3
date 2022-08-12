@@ -170,9 +170,9 @@ console.log(addToCollection('Starting Over', 'Chris Stapleton', 2020, [{trackNam
 
 //I believe this isn't working because it can't access the tracks array.
     
-//     console.log(search({artist: 'Rascal Miles', yearPublished: 2020}));
-//     console.log(search({artist: 'Skyler Day', yearPublished: 2021}));
-//     console.log(search({artist: 'Eminem', yearPublished: 2016}));
+    // console.log(search({artist: 'Rascal Miles', yearPublished: 2020}));
+    // console.log(search({artist: 'Skyler Day', yearPublished: 2021}));
+    // console.log(search({artist: 'Eminem', yearPublished: 2016}));
     // console.log(search());
     // console.log(search({}));
 
