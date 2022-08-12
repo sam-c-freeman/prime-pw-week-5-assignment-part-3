@@ -40,14 +40,14 @@ let collection = [];
 //   - Console.log the number of items in the array.
 //   - Loop over the array and console.log each album's information formatted like: `TITLE by ARTIST, published in YEAR`.
 
-function showCollection (array){
-    console.log(array.length);
-    for (album of array){
-        console.log(`${album.title} by ${album.artist}, published in ${album.yearPublished}`);
-    }
-}
+// function showCollection (array){
+//     console.log(array.length);
+//     for (album of array){
+//         console.log(`${album.title} by ${album.artist}, published in ${album.yearPublished}`);
+//     }
+// }
 
-showCollection(collection);
+// showCollection(collection);
 
 // - Test the `showCollection` function.
 
@@ -102,13 +102,13 @@ console.log(findByArtist('Skyler Day'));
 //     return searchMatches;
 // } 
 
-// console.log(search({artist: 'Rascal Miles', yearPublished: 2021}));
+// console.log(search({artist: 'Rascal Miles', yearPublished: 2020}));
 // console.log(search({artist: 'Skyler Day', yearPublished: 2021}));
 // console.log(search({artist: 'Eminem', yearPublished: 2016}));
 // console.log(search());
 // console.log(search({}));
 
-//Have not finished the above!!!
+//I realized this might not follow the instructions exactly.  I am going to try it differently for the search function below. Maybe I did understand it-unsure!
 
 
 
@@ -129,37 +129,29 @@ console.log(findByArtist('Skyler Day'));
 // > Make sure to test all your code!
 
 
-// function addToCollection (title, artist, yearPublished, [trackName, duration]){
-//     let album = {
-//         title ,
-//         artist ,
-//         yearPublished ,
-//         tracks : [trackName, duration],
-//         }
-//         collection.push(album);
-//         return album;
-//     }
+function addToCollection (title, artist, yearPublished, tracks){
+    let album = {
+        title,
+        artist,
+        yearPublished,
+        tracks: []
+        }
+        for (let oneTrack of tracks){
+            album.tracks.push(oneTrack);
 
-// function addToCollection (title, artist, yearPublished, [tracks]){
-//     let album = {
-//         title ,
-//         artist ,
-//         yearPublished ,
-//         let tracks = [],
-//         for (let track of tracks){
-//             tracks.push(trackName, duration);
-//         },
-//         }
-//         collection.push(album);
-//         return album;
-//     }
-
-//immediately above is entirely broken
+        }
+        collection.push(album);
+        return album;
+}
+    
+    
 
 console.log(addToCollection('Tailor Made', 'Rascal Miles', 2021, [{trackName: 'Rotten Roots', duration: '3:11'}, {trackName: 'Water Balloons', duration: '3:09'}]));
 console.log(addToCollection('Space Cadet', 'Rascal Miles', 2020, [{trackName: 'Dead Legs', duration: '4:19'}, {trackName: 'Smokin on the Porch', duration: '3:54'}, {trackName: 'Summer Solstice', duration: '3:13'}]));
+console.log(addToCollection('Songs from the Greenhouse', 'Skyler Day', 2021, [{trackName: 'Solo Cup', duration: '3:40'},{trackName: 'Habits', duration: '3:36'}, {trackName: 'If Not', duration: '3:54'}, {trackName: 'A Frame', duration: '3:45'} ]));
+console.log(addToCollection('Starting Over', 'Chris Stapleton', 2020, [{trackName: 'Starting Over', duration: '4:00'}, {trackName: 'Devil Always Made Me Think Twice', duration: '3:51'}]));
 
-//not adding third track?  Why?
+//above code breaks if there is not an array or empty array passed.  I might come back and find a solution for that.
 
 
 // function search (album){
@@ -168,21 +160,31 @@ console.log(addToCollection('Space Cadet', 'Rascal Miles', 2020, [{trackName: 'D
 //             return collection;
 //         }
 //         for (oneAlbum of collection){
-//             if(oneAlbum.artist === album.artist && oneAlbum.yearPublished === album.yearPublished){
+//             if(oneAlbum.artist === album.artist && oneAlbum.yearPublished === album.yearPublished && oneAlbum.tracks.trackName === album.tracks.trackName){
 //                 searchMatches.push(oneAlbum);
 //             }
 //         }
 //         return searchMatches;
 //     } 
 
-// function showCollection (array){
-//     console.log(array.length);
-//     for (album of array){
-//         console.log(`${album.title} by ${album.artist}, published in ${album.yearPublished}`);
-//     }
-// }
 
-// showCollection(collection);
+//I believe this isn't working because it can't access the tracks array.
+    
+//     console.log(search({artist: 'Rascal Miles', yearPublished: 2020}));
+//     console.log(search({artist: 'Skyler Day', yearPublished: 2021}));
+//     console.log(search({artist: 'Eminem', yearPublished: 2016}));
+    // console.log(search());
+    // console.log(search({}));
+
+
+function showCollection (array){
+    console.log(array.length);
+    for (album of array){
+        console.log(`${album.title} by ${album.artist}, published in ${album.yearPublished}`);
+    }
+}
+
+showCollection(collection);
 
 // ## Assignment Submission
 // Check in your repo, then turn in your work via the Prime Academy Assignment Application at http://primeacademy.io, as usual and don't hesitate to hit up the Slack channel as needed!
