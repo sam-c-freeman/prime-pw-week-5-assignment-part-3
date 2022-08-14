@@ -151,42 +151,57 @@ console.log(addToCollection('Space Cadet', 'Rascal Miles', 2020, [{trackName: 'D
 console.log(addToCollection('Songs from the Greenhouse', 'Skyler Day', 2021, [{trackName: 'Solo Cup', duration: '3:40'},{trackName: 'Habits', duration: '3:36'}, {trackName: 'If Not', duration: '3:54'}, {trackName: 'A Frame', duration: '3:45'} ]));
 console.log(addToCollection('Starting Over', 'Chris Stapleton', 2020, [{trackName: 'Starting Over', duration: '4:00'}, {trackName: 'Devil Always Made Me Think Twice', duration: '3:51'}]));
 
+
 //above code breaks if there is not an array or empty array passed.  I might come back and find a solution for that.
 
 
-// function search (album){
-//         let searchMatches = [];
-//         if (album === undefined || album.artist === undefined){
-//             return collection;
-//         }
-//         for (oneAlbum of collection){
-//             if(oneAlbum.artist === album.artist && oneAlbum.yearPublished === album.yearPublished && oneAlbum.tracks.trackName === album.tracks.trackName){
-//                 searchMatches.push(oneAlbum);
-//             }
-//         }
-//         return searchMatches;
-//     } 
+function search (album){
+        let searchMatches = [];
+        if (album === undefined || album.artist === undefined){
+            return collection;
+        }
+        for (oneAlbum of collection){
+            if(oneAlbum.artist === album.artist && oneAlbum.yearPublished === album.yearPublished){
+                for(let track of album.tracks){
+                    if(oneAlbum.tracks.trackName === album.tracks.trackName){
+                        searchMatches.push(oneAlbum);
+                }
+            }
+        }
+        return searchMatches;
+    } 
+}
 
 
-//I believe this isn't working because it can't access the tracks array.
+// Hey!  I couldn't get this one to work!  My goal was to first search for artist and year match.  Then I believe I need to loop through the tracks array to find a matching 
+//trackName.  This did not seem to work.
     
-    // console.log(search({artist: 'Rascal Miles', yearPublished: 2020}));
-    // console.log(search({artist: 'Skyler Day', yearPublished: 2021}));
-    // console.log(search({artist: 'Eminem', yearPublished: 2016}));
-    // console.log(search());
-    // console.log(search({}));
+    console.log(search({artist: 'Rascal Miles', yearPublished: 2020, trackName: 'Dead Legs'}));
+    console.log(search({artist: 'Skyler Day', yearPublished: 2021}));
+    console.log(search({artist: 'Eminem', yearPublished: 2016}));
+    console.log(search());
+    console.log(search({}));
 
 
 function showCollection (array){
     console.log(array.length);
     for (album of array){
-        console.log(`${album.title} by ${album.artist}, published in ${album.yearPublished}: ${album.tracks}`);
+        console.log(`${album.title} by ${album.artist}, published in ${album.yearPublished}:`);
+        for (let track of album.tracks){
+            console.log(`Name: ${track.trackName}, Duration: ${track.duration} `);
+        }
     }
 }
 
-//album.tracks shows the right number of objects but doesn't seem to carry forward the actual values
+
+
+//OMG- I finally did it.  I think struggling through this problem over and over did finally cement what I was trying to do!
 
 showCollection(collection);
 
 // ## Assignment Submission
 // Check in your repo, then turn in your work via the Prime Academy Assignment Application at http://primeacademy.io, as usual and don't hesitate to hit up the Slack channel as needed!
+
+
+console.log('Testing if first album displays:');
+console.log(collection[0].tracks[0]);
